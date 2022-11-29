@@ -1,0 +1,39 @@
+from bisect import bisect_right as upper_bound
+ 
+MAX = 100;
+ 
+# Function to find median in the matrix
+def binaryMedian(m, r, d):
+    mi = m[0][0]
+    mx = 0
+    for i in range(r):
+        if m[i][0] < mi:
+            mi = m[i][0]
+        if m[i][d-1] > mx :
+            mx =  m[i][d-1]
+     
+    desired = (r * d + 1) // 2
+     
+    while (mi < mx):
+        mid = mi + (mx - mi) // 2
+        place = [0];
+        for i in range(r):
+             j = upper_bound(m[i], mid)
+             place[0] = place[0] + j
+        if place[0] < desired:
+            mi = mid + 1
+        else:
+            mx = mid
+    print (mi)
+    return   
+     
+r = int(input())
+d = int(input())
+m = []
+for i in range(R):          
+    a =[]
+    for j in range(C):      
+         a.append(int(input()))
+    m.append(a)
+    
+binaryMedian(m, r, d)
