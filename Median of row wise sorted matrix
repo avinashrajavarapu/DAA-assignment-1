@@ -30,9 +30,9 @@ def binaryMedian(m, r, d):
 r = int(input())
 d = int(input())
 m = []
-for i in range(R):          
+for i in range(r):          
     a =[]
-    for j in range(C):      
+    for j in range(d):      
          a.append(int(input()))
     m.append(a)
     
